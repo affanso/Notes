@@ -1,0 +1,645 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*inline elements utni width lyty hn jitni ohy required ha 
+block level elements utni width lyty hn jitni unky pass availabe ha
+inline par height or width ka koi asar nahi
+only img is the inline in which we can add height and width
+inline par margin top or bottom add nahi ho ga
+inline par pading top or bottom add ho gi magar karni nahi warna mess up ho ga*/
+
+
+/*
+animation-name: animation1;
+animation-duration: 5s;                     animation ka time ky kitni darr my ho gi
+animation-delay: 3s;                        animation 3s ky baad start ho gi
+animation-iteration-count: 3;               animation 3 bar chaly gi
+animation-fill-mode: forwards;              animation from waly color sy to waly color my jany ky baad wapis default color nahi ho ga
+animation-direction: reverse;               animation to sy start ho kar from py khatam ho gi
+animation-timming-function: ease-in;        animation slow start ho gi
+animation-timming-function: ease-out;       animation slow end ho gi
+animation-timming-function: ease-in-out;    animation slow start or end ho gi 
+
+
+           animation name  animation duration  animation-fill-mode  animation-delay  animation-iteration-count  animation-timming-function     
+                |                 |                     |                   |               |                              |
+animation:   move-around          5s                forwards               2s            infinite                      ease-in-out ;
+
+
+@keyframes animation1{
+    from{
+        background-color: red;
+        width: 2px;
+    }
+    to{
+        background-color: orange;
+        width: 300px;
+    }
+}
+
+@keyframes animation2{
+    0%{
+
+    }
+    20%{
+
+    }
+    25%{
+
+    }
+    50%{
+
+    }
+    75%{
+
+    }
+    100%{
+
+    }
+}
+                           
+
+
+
+TRANSITION:
+
+box:hover{
+    background: lightcoral;
+    width: 200px;
+    height: 150px;
+}
+
+
+transition-property: background;            background,width,height and etc kis my transition perfrom ho gi jab hum hover kary gy
+transition-duration: 5s;
+transition-timing-function: ease-in;
+
+transition: background 1s ease-in-out , width 1s ease-in-out;   transtion short hand;
+
+transition: all 1s ease-in-out
+
+
+
+*/
+
+
+/*
+flex-box:-
+
+  row:
+  _______________________________________________________________________
+  |                                   |                                  |
+  |                                   |                                  |   
+  |                                   |                                  |
+  |---------------------main axis--------------------------------------->|
+  |                                   |                                  |
+  |                                   |                                  |
+  |                                 cross axis                           |
+  |___________________________________|__________________________________|
+
+
+
+
+  column:
+         _____________________________
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |-cross axis----------------->|
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |         main axis           |
+        |             |               |
+        |             |               |
+        |             |               |
+        |             |               |
+        |_____________|_______________|
+
+  Flex Container properties:
+
+  .container{
+    display: flex;
+    flex-direction: row;             default  main axis left sy right par jati ha
+    flex-direction: row-reverse;     main axis right sy left jati ha
+    flex-direction: column;          main axis ab badal kar up sy down jay gi
+    flex-direction: column-reverse;  main axis ab badal kar down sy up jay gi
+  }
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;   agar hum chahty hn ky andar jitny box hn hamari marzi ki width ly or ya haramri marzi ki width par set ho kar baki ka
+                       content jo pora na aa raha ho wo cross axis ki direction ma chala jataha
+    
+    flex-wrap: wrap-reverse; same wrap ki tarha par cross axis ki direction change ho kar down sy up ho gi                  
+  }
+
+
+  .container{
+    display: flex;
+    justify-content: flex-start;        by default boxes main axis ky shuru par hu gy
+    justify-content: flex-end;          boxes main axis ky end par aa jay gy
+    justify-content: center;            boxes center par aa jay gy
+    justify-content: space-between;     boxes ky darmiyan space aa jay gi lakin shuru or end wala box or border my space nahi ho gi
+    justify-content: space-around;      boxes ky darmiyan space aa jay gi or shuru or end wala box or border my space ho gi lakin ya space kam hoti ha doso ky mukably
+    justify-content: space-evenly;      boxes ky darmiyan space aa jay gi or shuru or end wala box or border my space ho gi or sari spaces equal ho gi  
+  }
+
+  .container{
+    display: flex;
+    height: 700px;
+    align-items: stretch;              by default boxes cross axsis ki direction my stretch rhty hn
+    align-items: flex-start;           same justify content jasa ha par ismy boxes cross axis ky shuru my hoty hn
+    align-items: flex-end;             same justify content jasa ha par ismy boxes cross axis ky end my hoty hn
+    justify-content: center;           boxes cross axis ky center my aya gy
+  }
+
+
+  .container{
+    display: flex;
+    height: 700px;
+    flex-wrap: wrap;                issy box ki jo width ho gi wo aya gi agar ya na likhy to box ki width apni marzi sy select ho gi
+                                    or box apny container sy overflow nahi ho ga jo overflow ho raha ho ga wo cross axis ki directio my
+                                    shift ho jy ga
+    align-items: flex-start;        boxes sary cross axis ky shuru my aa jay gy or agar ya nahi lagaty to height stretch rahy gi
+
+    align-content: flex-start       ab upar wali properties use karny ky baad jo space aya ha usy ya khatum kary ga or content shuru my ly aya ga
+    align-content: flex-end;
+    align-content: center;
+    align-content: space-around;
+    align-content: space-between;
+    align-content: space-evenly;
+  }
+  .box{
+    width: 400px;
+  }
+
+
+  flex-flow: row wrap;   ya do flex ki do properties ko ak sath likhny ky liya hota ha first wala flex-direction or dosra flex-wrap
+
+
+
+
+
+
+
+
+
+  Flex boxes properties:
+
+  .container{
+    display: flex;
+    height: 700px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box1{
+    
+  }
+  .box2{
+    align-self: center;                    ya container ki property ko overwrite kar ky khud sy align ho ga cross axis ki taraf
+  }
+  .box3{
+
+  }
+
+
+
+  .container{
+    display: flex;
+    height: 700px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box1{
+    order: 2;
+  }
+  .box2{
+    order: 5;                                   jiska order bara ho ga wo pahly aya ga   box3,box1,box2
+  }
+  .box3{
+    order: 0;
+  }
+
+
+
+
+
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.box{
+    flex-basis: 500px;                ya flex item ki initial length ha main axis ki taraf same width ki tarha ha par width nahi ha
+                                      agar flex direction column ho to phir ya height ki tarha kam karta ha par height nahi ha
+}
+
+
+
+
+
+
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+  }
+  .box1{
+    width: 400px;
+    flex-grow: 1;                   by default 0 hota ha jab container ki width ma space free ho to issy ya boxes apni value 
+                                    ky hisab sy space divide kar lyty hn
+  }
+  .box2{
+    width: 400px;
+    flex-grow: 1;                                 
+  }
+  .box3{
+    width: 400px;
+    flex-grow: 2;
+  }
+
+
+
+  flex-shrink: 1;                 flex iteam 1 times shrink ho jay gi jasy fllex grow sy grow hoti thi ya space cover nahi kary gi
+
+
+
+  flex: 2 1 400px;                short hand for use three properties at a time    flex-grow , flex-shrink , flex-basis 
+
+
+
+
+
+*/
+
+
+/*
+Pseudo Classes
+
+link ka color
+a:link{
+    color: orange;
+}
+
+link visit kar li ha
+a:visited{
+    color: red;
+}
+
+link ky upar mouse rakhna
+a:hover{
+    color: green;
+}
+
+link ko click karky rakhna
+a:active{
+    color: black;
+}
+
+
+
+jab apny input par kuch likhna ho
+input:focus{
+    padding: 5px;
+    outline: none;
+    border: 2px solid green;
+}
+
+jiss input par required ho os ka color
+input:required{
+    color: red;
+}
+
+
+
+p agar apny parent ka pahla child ho ga to wo red color ho jay ga
+p:first-child{
+    color: red;
+}
+
+p ky parent ka first p jo bhi ho ga osy color mily ga
+p:first-of-type{
+    color: red;
+}
+
+p agar apny parent ka last child ho ga to wo red color ho jay ga
+p:last-child{
+    color: red;
+}
+
+p ky parent ka last p jo bhi ho ga osy color mily ga
+p:last-of-type{
+    color: red;
+}
+
+
+p:nth-child(2){
+    color: red;
+}
+
+p:nth-child(2n){
+    color: red;
+}
+
+p:nth-of-type(){
+    color: red;
+}
+
+
+
+har wo element jo p nahi ha oska color red ho ga lakin p apni parent (body) sy inherit kar lyga color
+:not(p){
+    color: red;
+}
+
+body ka har wo element jo p nahi ha wo red ho ga
+body :not(p){
+    color: red;
+}
+
+jo div empty ha wo
+div:empty{
+    color: red;
+}
+
+both are same but root has more specificity
+:root{                   
+    color: red;            
+}                                   
+html{
+    color: red;
+}
+
+
+pseudo elements my double colon use hota ha
+
+p ky jitny bhi first letter
+p::first-letter{
+    font-size: 32px;
+}
+
+mouse sy jab select kia ho
+::selection{
+    background: black;
+    color: white;
+}
+h1::selection{
+    background: black;
+    color: white;
+}
+
+
+p sy pahly
+p::before{
+    content: 'hello';    ya select nhi hota
+    display: block;      by default inline hota ha
+}
+p::after{
+    content: 'hello';
+    display: block;      by default inline hota ha
+}
+
+img,br,input or asy elements my before after use nhi hota
+
+
+*/
+
+/*
+Absoute Units:
+1in == 96px
+1in == 2.54cm
+1px == 0.75pt
+
+Relitive Units:
+
+font-size: 200%;    by default 16px hota ha to 100% 16px ka 16px he ho ga
+
+yaha par div parent ha p ka p div sy size inerit kar raha ha to p my 200% ka matlab 60px ho ga
+div{
+   font-size: 30px; 
+}
+p{
+    font-size: 200%;
+}
+
+hum % ko zada width ky liya use karty hn
+div{
+    border: 2px solid black;
+    width: 100%;
+}
+p{
+    border: 2px solid red;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+62.5% of 16px = 10px
+
+
+if font size is 10px then 2rem is 20px 
+
+2rem means 2 times
+
+font-size: 2rem;   by default size 16px hota ha to 2rem 32px hoga
+
+
+padding or margin ky liya em or font size ky liya rem
+
+agar hum border margin ya padding em my dy gy to wo apny font size ko dakhy ga ky wo kitny size ka ha phir em os font size ko default manty hoa apny aap ko double kary ga rem ki tarha
+
+rem matlab root ka font size dakhy ga
+em matlab apny parent ka font size dakhy ga
+
+
+
+viewports:
+vh    view height   
+      same % ki tarha hn jitni hum apni screen my height dakh sakty hn chahy screen ko jitna marzi chota bara karo oski percentage ky hisab sy set ho ga lakin % my parent ky size ko dakhty hoa set hota tha
+vw    view width
+vmax  view max
+      agar height ya width my vmax dy gy to wo dakhy ga konsa bara ha height ya width jo bara ho ga oski % sy set ho ga
+vmin view min
+      same like vmax but opposite
+
+
+*/
+
+
+
+/*
+float and clear
+
+.pbox{
+    border: 2px solid red;
+}
+.box1{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: blue;
+}
+.box2{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: blueviolet;
+}
+.box3{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: brown;
+}
+.box4{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: burlywood;
+}
+.pbox::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
+
+
+/*
+relative: relative to its normal positon and will leave a gap at its normal position
+position: relative;
+absolute: relative to the positon of its first parent
+*/
+
+
+/* box-sizing: border-box; 
+taky content apny box sy bahir na jay*/
+
+/*
+CSS reset
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+*/
+
+/*
+list ky dots ko hatany ky liya        list-style: none; 
+a tag ka underline hatany ky liya     text-decoration: none;
+text ko mota karny ky liya            font-weight: 100;  
+*/
+
+/*
+space between two lines               line-height: 20px;
+space between two words               word-spacing: 5px;
+space between two letters             letter-spacing: 5px;
+*/
+
+/*
+for scrollbar
+body::-webkit-scrollbar{
+    background-color: transparent;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #ee4758;
+    border-radius: 50px;
+}
+*/
+
+header{
+    background-color: #febebe;
+    
+}
+section.article-section{
+    background-color: #febebe;
+} 
+/* main h1{
+    color: green;
+} */
+/*direct child*/
+main > h1{
+    color: red;
+}
+/*h1 ky foran baad*/
+h1+p{
+    color: blueviolet;
+}
+input[type="text"]{
+    color: tomato;
+    background-color: blue;
+}
+/*jiss href my bhi google aa raha ha wo*/
+/* a[href *= "google"]{
+    color: chartreuse;
+    background-color: blueviolet;
+} */
+/*jiss ky start par https aa raha ha wo*/
+/* a[href ^= "https"]{
+    color: black;
+} */
+/*jiss ky end par .com aa raha ha wo*/
+/* a[href $= ".com"]
+{
+    color: azure;
+} */
+
+
+/* inline style attribute › id selector › class selector > element selector */
+
+/*0,0,2,2  22 */
+body header .uul .google{
+    background-color: red;
+} 
+
+/*0,0,2,1  21 */
+header .uul .google{
+    background-color: blue;
+}
+
+.main-article{
+    border: 4px solid black;
+    /* width: 200px;
+    margin: 20px auto;
+    padding: 20px 50px;
+    text-align: center; */
+
+    /* 
+    content or border ky darmiyan gap
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding: 40px;  4 sides par 40px
+        top/bottom  left/right
+    padding: 20px  40px;
+           top  right bottom left
+    padding: 20px 40px 10px  30px;*/
+    
+
+    /* 
+    border ki golaii
+    border-radius: 5px; */
+    /* border-top: 4px solid black;
+    border-bottom: 4px dotted blue; */
+    /* border-width: 4px;
+    border-style: solid;
+    border-color: blue; */
+}
+
+
+
